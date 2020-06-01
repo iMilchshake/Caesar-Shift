@@ -3,7 +3,7 @@ Python libary for Caesar-Shift encrypting, decrypting and automatical cracking
 
 ## Features
 * Encrypting/Decrypting using shift values
-* Automatical cracking
+* Automatical cracking of Caesar cipher
 
 ## Example using a German sentence
 ```
