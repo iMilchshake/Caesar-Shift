@@ -1,4 +1,4 @@
-from caesarshift import remove_umlaute, shift, decrypt
+from caesarshift import replace_umlaute, shift, decrypt
 
 # This Example uses a German sentence and common German words, but this will work with every language
 
@@ -6,7 +6,7 @@ from caesarshift import remove_umlaute, shift, decrypt
 plaintext = "...und den Gorillas, die stehend bis zu 1,75 Meter hoch werden und ein Gewicht von 200 Kilogramm " \
             "erreichen können, sowie den Menschen mit einer Körpergröße von durchschnittlich 1,60 bis 1,80 Metern, " \
             "in Einzelfällen auch mehr als 2,00 Metern. Einige Arten haben einen ausgeprägten... "
-plaintext_withoutUmlaute = remove_umlaute(plaintext)
+plaintext_withoutUmlaute = replace_umlaute(plaintext)
 cipher = shift(plaintext_withoutUmlaute, -13, True)
 
 # Decrypt Cipher

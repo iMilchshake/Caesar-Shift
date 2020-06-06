@@ -13,8 +13,8 @@
 #   get_shiftscores(cipher: str, words: iter, top: int):
 #       - Calculates scores for each possible shift-value (1-25) by finding 'words'
 #
-#   removeUmlaute(text: str):
-#       - Removes all German umlauts
+#   replace_umlaute(text: str):
+#       - Replaces all German umlauts
 
 from operator import itemgetter
 import string
@@ -26,10 +26,10 @@ def shift(cipher: str, s: int, show_punc: bool):
         cipher = cipher.translate(str.maketrans('', '', string.punctuation))
 
     for c in cipher.lower():
-        if c in string.punctuation or c is ' ' or c.isdigit():
+        if ord('a') <= ord(c) <= ord('z'):  # c is a-z
+            o += chr(((ord(c) + s - ord('a')) % 26) + ord('a'))  # shift by s
+        else:  # c is not a-z
             o += c
-        else:
-            o += chr(((ord(c) + s - ord('a')) % 26) + ord('a'))
     return o
 
 
@@ -47,7 +47,7 @@ def get_shiftscores(cipher: str, words: iter, top: int):
     return scores[:top]  # return the best ones
 
 
-def remove_umlaute(text: str):
+def replace_umlaute(text: str):
     special_char_map = {ord('ä'): 'ae', ord('ü'): 'ue', ord('ö'): 'oe', ord('ß'): 'ss'}
     return text.translate(special_char_map)
 
