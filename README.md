@@ -6,7 +6,7 @@ Python libary for Caesar-Shift encrypting, decrypting and automatical cracking
 * Automatical cracking of Caesar cipher
 
 ## Example using a German sentence
-```
+```python
 from caesarshift import shift, decrypt
 
 # Generate Cipher with a shift-value of 13
